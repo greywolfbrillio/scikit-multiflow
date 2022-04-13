@@ -301,9 +301,10 @@ class ADWIN(BaseDriftDetector):
         bln_bucket_deleted = False
         self.mint_time += 1
         n0 = 0
-        print("Condition for detect change loop")
+        print("pre checks for entering change detection loop")
         print("self.width > self.mint_min_window_longitude", self.width , self.mint_min_window_longitude)
         print("(self.mint_time % self.mint_clock == 0)" ,self.mint_time , self.mint_clock, (self.mint_time % self.mint_clock == 0))
+        print("pre checks for entering change detection loop")
         if (self.mint_time % self.mint_clock == 0) and (
                 self.width > self.mint_min_window_longitude):
             bln_reduce_width = True
@@ -345,7 +346,7 @@ class ADWIN(BaseDriftDetector):
                             break
 
                         abs_value = 1. * ((u0 / n0) - (u1 / n1))
-                        print("detecte change")
+                        print("Inside change detection")
                         print("absolute_value , u0 , n0 , u1 , n1 :",  abs_value, u0,n0,u1,n1)
                         print("self.mint_min_window_length :" , self.mint_min_window_length)
                         
