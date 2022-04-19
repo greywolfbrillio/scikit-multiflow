@@ -248,6 +248,7 @@ class ADWIN(BaseDriftDetector):
     def __compress_buckets(self):
         cursor = self.list_row_bucket.first
         i = 0
+        print("cursor.bucket_size_row , self.MAX_BUCKETS" , cursor.bucket_size_row , self.MAX_BUCKETS)
         while cursor is not None:
             k = cursor.bucket_size_row
             if k == self.MAX_BUCKETS + 1:
