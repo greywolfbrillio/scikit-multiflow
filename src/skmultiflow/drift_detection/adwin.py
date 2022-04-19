@@ -200,7 +200,7 @@ class ADWIN(BaseDriftDetector):
         self._total += value
         self.__compress_buckets()
         print("Add Element function self._variance , self._total, self._width:",self._variance , self._total, self._width)
-        print("self.list_row_bucket :", self.list_row_bucket)
+        print("self.list_row_bucket :" , self.list_row_bucket)
         
 
     def __insert_element_bucket(self, variance, value, node):
