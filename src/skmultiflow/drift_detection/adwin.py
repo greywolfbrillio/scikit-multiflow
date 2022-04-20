@@ -200,7 +200,7 @@ class ADWIN(BaseDriftDetector):
         self._total += value
         self.__compress_buckets()
         print("Add Element function self._variance , self._total, self._width:",self._variance , self._total, self._width)
-        print("self.list_row_bucket :" , self.list_row_bucket)
+        print("size of self.list_row_bucket :" , self.list_row_bucket.size())
         
 
     def __insert_element_bucket(self, variance, value, node):
@@ -255,6 +255,7 @@ class ADWIN(BaseDriftDetector):
             print("cursor.bucket_size_row , self.MAX_BUCKETS" , cursor.bucket_size_row , self.MAX_BUCKETS)
             if k == self.MAX_BUCKETS + 1:
                 next_node = cursor.get_next_item()
+                print(next_node)
                 if next_node is None:
                     self.list_row_bucket.add_to_tail()
                     next_node = cursor.get_next_item()
