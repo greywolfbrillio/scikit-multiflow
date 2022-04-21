@@ -260,7 +260,8 @@ class ADWIN(BaseDriftDetector):
                     self.list_row_bucket.add_to_tail()
                     next_node = cursor.get_next_item()
                     self.last_bucket_row += 1
-                    print("compress bucket: last_bucket_row increased by 1 ", self.last_bucket_row)
+                    print("compress bucket: last_bucket_row increased ", self.last_bucket_row)
+                    print("compress bucket: size of self.list_row_bucket :" , self.list_row_bucket.size())
                 n1 = self.bucket_size(i)
                 n2 = self.bucket_size(i)
                 u1 = cursor.get_total(0) / n1
