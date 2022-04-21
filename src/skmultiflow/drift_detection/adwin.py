@@ -198,9 +198,10 @@ class ADWIN(BaseDriftDetector):
 
         self._variance += incremental_variance
         self._total += value
-        self.__compress_buckets()
         print("Add Element function self._variance , self._total, self._width:",self._variance , self._total, self._width)
-        print("size of self.list_row_bucket :" , self.list_row_bucket.size)
+        self.__compress_buckets()
+        
+        
         
 
     def __insert_element_bucket(self, variance, value, node):
@@ -252,7 +253,7 @@ class ADWIN(BaseDriftDetector):
         
         while cursor is not None:
             k = cursor.bucket_size_row
-            print("cursor.bucket_size_row , self.MAX_BUCKETS" , cursor.bucket_size_row , self.MAX_BUCKETS)
+            
             if k == self.MAX_BUCKETS + 1:
                 next_node = cursor.get_next_item()
                 print(next_node)
@@ -310,7 +311,7 @@ class ADWIN(BaseDriftDetector):
         print("pre checks for entering change detection loop")
         print("self.width > self.mint_min_window_longitude", self.width , self.mint_min_window_longitude)
         print("(self.mint_time % self.mint_clock == 0)" ,self.mint_time , self.mint_clock, (self.mint_time % self.mint_clock == 0))
-        print("pre checks for entering change detection loop")
+        
         if (self.mint_time % self.mint_clock == 0) and (
                 self.width > self.mint_min_window_longitude):
             bln_reduce_width = True
@@ -354,7 +355,7 @@ class ADWIN(BaseDriftDetector):
                         abs_value = 1. * ((u0 / n0) - (u1 / n1))
                         print("Inside change detection")
                         print("absolute_value , u0 , n0 , u1 , n1 :",  abs_value, u0,n0,u1,n1)
-                        print("self.mint_min_window_length :" , self.mint_min_window_length)
+                        
                         
                         print("self.last_bucket_row :" , self.last_bucket_row)
                         print("cursor.bucket_size_row : " , cursor.bucket_size_row)
