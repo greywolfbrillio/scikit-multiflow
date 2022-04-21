@@ -250,13 +250,13 @@ class ADWIN(BaseDriftDetector):
     def __compress_buckets(self):
         cursor = self.list_row_bucket.first
         i = 0
-        
+        print(cursor.bucket_size_row)
         while cursor is not None:
             k = cursor.bucket_size_row
             
             if k == self.MAX_BUCKETS + 1:
                 next_node = cursor.get_next_item()
-                print(next_node)
+                print(next_node.bucket_size_row)
                 if next_node is None:
                     self.list_row_bucket.add_to_tail()
                     next_node = cursor.get_next_item()
@@ -308,7 +308,7 @@ class ADWIN(BaseDriftDetector):
         bln_bucket_deleted = False
         self.mint_time += 1
         n0 = 0
-        print("pre checks for entering change detection loop")
+        print("Entering change detection loop")
         print("self.width > self.mint_min_window_longitude", self.width , self.mint_min_window_longitude)
         print("(self.mint_time % self.mint_clock == 0)" ,self.mint_time , self.mint_clock, (self.mint_time % self.mint_clock == 0))
         
