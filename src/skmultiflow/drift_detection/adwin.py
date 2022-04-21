@@ -253,10 +253,10 @@ class ADWIN(BaseDriftDetector):
         print(cursor.bucket_size_row)
         while cursor is not None:
             k = cursor.bucket_size_row
-            
+            print(cursor.get_next_item())
             if k == self.MAX_BUCKETS + 1:
                 next_node = cursor.get_next_item()
-                print(next_node)
+                
                 if next_node is None:
                     self.list_row_bucket.add_to_tail()
                     next_node = cursor.get_next_item()
