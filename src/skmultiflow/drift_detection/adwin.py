@@ -241,10 +241,11 @@ class ADWIN(BaseDriftDetector):
         if node.bucket_size_row == 0:
             self.list_row_bucket.remove_from_tail()
             self.last_bucket_row -= 1
+            print("bucket size & last bucket row : ",n1 , self.last_bucket_row)
 
-        print("delete_element function:")
-        print("bucket size & last bucket row : ",n1 , self.last_bucket_row)
-        print(self._variance, self._total , self._width)
+        print("delete_element function self._variance, self._total , self._width:", self._variance, self._total , self._width)
+        
+        
         return n1
 
     def __compress_buckets(self):
@@ -256,7 +257,7 @@ class ADWIN(BaseDriftDetector):
             print(cursor.get_next_item())
             if k == self.MAX_BUCKETS + 1:
                 next_node = cursor.get_next_item()
-                
+                print(next_node.bucket_size_row)
                 if next_node is None:
                     self.list_row_bucket.add_to_tail()
                     next_node = cursor.get_next_item()
@@ -394,8 +395,8 @@ class ADWIN(BaseDriftDetector):
         m = (1. / (n0 - self.mint_min_window_length + 1)) + \
             (1. / (n1 - self.mint_min_window_length + 1))
         epsilon = np.sqrt(2 * m * v * dd) + 1. * 2 / 3 * dd * m
-        print("Abs value and Epislon :")
-        print(np.absolute(abs_value) , epsilon)
+        print("Abs value and Epislon :", np.absolute(abs_value) , epsilon)
+        
         return np.absolute(abs_value) > epsilon
 
 
