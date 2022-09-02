@@ -205,7 +205,9 @@ class ADWIN(BaseDriftDetector):
         print("Cursor Total : ",cursor.bucket_total)
         while cursor is not None:
             cursor = cursor.get_next_item()
-            print("Cursor Total : ",cursor.bucket_total)
+            if cursor is not None:
+                print("Cursor Total : ",cursor.bucket_total)
+            
         
         
         
