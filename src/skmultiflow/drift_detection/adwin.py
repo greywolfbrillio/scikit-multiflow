@@ -200,6 +200,12 @@ class ADWIN(BaseDriftDetector):
         self._total += value
         print("Add Element function self._variance , self._total, self._width:",self._variance , self._total, self._width)
         self.__compress_buckets()
+        # Kumarnvn changes
+        cursor = self.list_row_bucket.first
+        print("Cursor Total : ",cursor.bucket_total)
+        while cursor is not None:
+            cursor = cursor.get_next_item()
+            print("Cursor Total : ",cursor.bucket_total)
         
         
         
